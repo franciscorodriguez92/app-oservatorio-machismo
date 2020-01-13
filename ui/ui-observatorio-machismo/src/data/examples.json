@@ -1,0 +1,29 @@
+{
+    "examples": [
+      {
+        "term": "feminazi",
+        "label": "MACHISTA",
+        "text": "ejemplo de feminazi 1"
+      },
+      {
+        "term": "feminazi",
+        "label": "MACHISTA",
+        "text": "ejemplo de feminazi 2"
+      },
+      {
+        "term": "feminazi",
+        "label": "MACHISTA",
+        "text": "ejemplo de feminazi 3"
+      },
+      {
+          "term": "zorra",
+          "label": "MACHISTA",
+          "text": "ejemplo de zorra 1"
+      },
+      {
+          "term": "nenaza",
+          "label": "MACHISTA",
+          "text": "ejemplo de nenaza 1"
+      }
+    ]
+  }

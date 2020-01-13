@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
+import AppBarSimple from "./components/AppBarSimple";
+import Footer from "./components/Footer"
+import examples from "./data/examples.json"
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+
 
 
 // Import Highcharts
@@ -10,29 +15,8 @@ import HighchartsReact from 'highcharts-react-official'
 
 import Chart from "./Chart.jsx";
 
+import Header from "./components/Header"
 
-// let options = {
-//   title: {
-//     text: ""
-//   },
-//   chart: {
-//     events: {
-//       render: function() {
-//         console.log("render");
-//       }
-//     }
-//   },
-//   series: [
-//     {
-//       allowPointSelect: true,
-//       point: {
-//         events: {}
-//       },
-//       data: [],
-//       type: "column"
-//     }
-//   ]
-// };
 
 let options = {
   title: {
@@ -86,6 +70,11 @@ let options = {
 
 class App extends React.Component {
 
+  state = {
+    examples: examples,
+    selectedTerm: "ejemplo"
+  }
+
   componentDidMount(){
     const url = "/data";
     fetch(url)
@@ -115,6 +104,9 @@ class App extends React.Component {
     
   }
  
+  onChange = e => {
+    console.log(e.target.value)
+  }
   // render() {
   //   console.log("esto:")
   //   console.log(this.props.options);
@@ -133,12 +125,33 @@ class App extends React.Component {
   // }
 
   render() {
-    console.log(options);
+    console.log(this.state.selectedTerm);
     return (
+
       <div>
+        <AppBarSimple></AppBarSimple>
+        <Header></Header>
+        <select name="select" onChange={this.onChange}>
+          <option value="blanco"></option> 
+          <option value="feminazi">feminazi</option> 
+          <option value="nenaza">nenaza</option>
+          <option value="zorra">zorra</option>
+        </select>
+
+        <Grid container justify="center" >
+        <Grid spacing={3} alignItems="center" justify="center" container>
+
+        { this.state.examples.examples.map((e,i) => <Grid item xs={4} key={i}><Paper>{e.text}</Paper> </Grid> ) }
+
+        </Grid>
+
+        </Grid>
+
+
         {this.state && this.state.data && (
           <Chart options={options} highcharts={Highcharts} ref={"chart"} />
         )}
+        <Footer title = "Pie de página" description = "Descripción del pie de página"></Footer>
       </div>
     );
   }
