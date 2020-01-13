@@ -71,7 +71,7 @@ class App extends React.Component {
 
   state = {
     examples: examples,
-    selectedTerm: "ejemplo"
+    selectedTerm: ""
   }
 
   componentDidMount(){
@@ -104,7 +104,9 @@ class App extends React.Component {
   }
  
   onChange = e => {
-    console.log(e.target.value)
+    //console.log(e.target.value)
+    this.setState({selectedTerm: e.target.value});
+    //console.log(this.state.selectedTerm);
   }
   // render() {
   //   console.log("esto:")
@@ -124,7 +126,7 @@ class App extends React.Component {
   // }
 
   render() {
-    console.log(this.state.selectedTerm);
+    //console.log(this.state.selectedTerm);
     return (
 
       <div>
@@ -140,7 +142,7 @@ class App extends React.Component {
         <Grid container justify="center" >
         <Grid spacing={3} alignItems="center" justify="center" container>
 
-        <Examples examples={this.state.examples.examples}/>
+        <Examples examples={this.state.examples.examples} selectedTerm={this.state.selectedTerm}/>
 
 
         </Grid>
