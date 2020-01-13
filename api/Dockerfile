@@ -1,5 +1,6 @@
 FROM python:3.7-alpine
-
+#Problemas al instalar pandas con alpine:
+#https://github.com/docker-library/python/issues/381
 RUN apk add --no-cache python3-dev libstdc++ && \
     apk add --no-cache g++ && \
     ln -s /usr/include/locale.h /usr/include/xlocale.h && \
