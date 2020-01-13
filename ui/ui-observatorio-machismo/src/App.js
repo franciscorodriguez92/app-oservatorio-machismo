@@ -4,8 +4,7 @@ import AppBarSimple from "./components/AppBarSimple";
 import Footer from "./components/Footer"
 import examples from "./data/examples.json"
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-
+import Examples from './components/Examples'
 
 
 // Import Highcharts
@@ -141,7 +140,8 @@ class App extends React.Component {
         <Grid container justify="center" >
         <Grid spacing={3} alignItems="center" justify="center" container>
 
-        { this.state.examples.examples.map((e,i) => <Grid item xs={4} key={i}><Paper>{e.text}</Paper> </Grid> ) }
+        <Examples examples={this.state.examples.examples}/>
+
 
         </Grid>
 
